@@ -81,14 +81,6 @@ $isAdminCondition = (isset($_SESSION["loggedAs"]) && $_SESSION["loggedAs"] == "a
 						<li>
 							<h2 class="<?= $url == "glossary" ? 'active' : ''; ?>"><a href="http://www.zkittygb.fr/bestiary/public/?url=glossary" aria-label="Voir le glossaire">Glossaire</a></h2>
 						</li>
-						<?php if($userFirstName) { ?>
-							<li>
-								<h2 class="<?= $url == "tchat" ? 'active' : ''; ?>"><a href="http://www.zkittygb.fr/bestiary/public/?url=tchat" aria-label="Accéder au tchat">Tchat</a></h2>
-							</li>
-							<li>
-								<h2 class="<?= $url == "bookmarks" ? 'active' : ''; ?>"><a href="http://www.zkittygb.fr/bestiary/public/?url=bookmarks" aria-label="Voir les favoris">Favoris</a></h2>
-							</li>
-						<?php } ?>
 					<?php } else { ?>
 						<li>
 							<h2 class="<?= $url == "slideshowManager" ? 'active' : ''; ?>"><a href="http://www.zkittygb.fr/bestiary/public/?url=slideshowManager" aria-label="Gérer les slideshows">Slideshow</a></h2>

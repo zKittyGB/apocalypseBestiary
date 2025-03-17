@@ -41,7 +41,7 @@ Dans le **Bestiaire** :
 
 Dans les **Cartes** :
 
-- L'utilisateur peut sélectionner une carte pour afficher les habitats et les zones sûres.
+- L'utilisateur peut sélectionner une carte pour afficher les positions sur la carte des habitats et des zones sûres.
 - L'interface permet de décocher des cases pour masquer certains éléments.
 - Un sélecteur de monstres permet de visualiser les habitats dans lesquels les créatures peuvent vivre.
 
@@ -60,7 +60,7 @@ Si l'utilisateur possède un rôle **Administrateur**, il peut :
 - **Ajouter / Modifier / Supprimer** des mots-clés.
 
 Lors de la création d'un monstre, l'utilisateur a la possibilité de découper une image dans l'en-tête de la modale.
-
+Lors de la création / mise-à-jour d'un habitat ou d'une zone sûre, l'utilisateur a la possibilité de cliquer sur les cartes pour définir la position.
 ## Features à venir (V2)
 
 - **Système de favoris** : Permettre aux utilisateurs connectés de marquer leurs monstres préférés.
