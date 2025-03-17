@@ -1,0 +1,38 @@
+
+body.isAdmin main div.addSlideModal {
+	position: absolute;
+	top: -13px;
+	left: 0;
+	width: calc(100% - 2em);
+	height: calc(100vh - 6em);
+	background-color: black;
+	padding: 1em;
+	display: none;
+	z-index: 3;
+}
+
+body.isAdmin main div.addSlideModal.active {
+	display: block;
+}
+
+.addSlideModal-close {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	cursor: pointer;
+}
+
+body.isAdmin main div.addSlideModal .gallery::before {
+	content: "Aucune image disponible";
+	display: block;
+	font-size: 1.5em;
+	text-align: center;
+	color: #666;
+	padding: 0.8em;
+}
+    
+
+body.isAdmin main div.addSlideModal .gallery-cardContainer-card {
+	margin-bottom: 1em;
+	height: 6em;
+}

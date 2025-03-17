@@ -1,0 +1,186 @@
+.header-slideshow-Research {
+	height: 6em;
+}
+
+header .header-slideshow-Research .search-container {
+	display: none;
+}
+
+main {
+	height: calc(100vh - 8.5em);
+}
+
+body:has(.slideshow-container img) main {
+	height: calc(100vh - 14.5em);
+}
+
+/* ************** */
+/*     Content    */
+/* ************** */
+
+.register-content,
+.login-content {
+	position: relative;
+	width: 100%;
+	height: calc(100% - 2em);
+}
+
+.register-content .register-content-registerContainer,
+.login-content .login-content-logContainer {
+	position: relative;
+	margin-top: 1em;
+	height: calc(100% - 3.5em);	
+	width:calc(100% - 2em);
+	padding: 1em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 1em;
+	background-color: rgba(0, 0, 0, 0.5);
+	border: 2px solid var(--primary-color-alert);
+	border-radius: 15px;
+}
+
+.register-content h3,
+.login-content h3 {
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	font-size: 1.7em;
+}
+
+.register-content-actions,
+.login-content-actions {
+	position: absolute;
+	width: calc(100% - 2em);
+	bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+}
+
+.inputContainer-flex {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	gap: 4em;
+}
+
+.inputContainer {
+	position: relative;
+}
+
+.inputContainer:has(.error.active) {
+	margin-bottom: 1.5em;
+}
+
+/* ************** */
+/*     LogAs      */
+/* ************** */
+.logAs-content {
+	height: calc(100% - 2em);	
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-self: center;
+}
+
+.logAs-content-container {
+	display: flex;
+	width: 100%;
+	height: 100%;
+	justify-content: space-between;
+	gap: 1em;
+}
+
+.logAs-content-container-inputContainer {
+	position: relative;
+
+	margin-top: 1em;
+	width:50%;
+	background-color: black;
+	border: 2px solid var(--primary-color-alert);
+	height: calc(100% - 1em);
+	background-size: cover;
+	background-repeat: no-repeat; 
+	background-position: center ; 
+	cursor: pointer;
+}
+
+.logAs-content-container-inputContainer:first-of-type {
+	background-image: url("/bestiary/public/images/user.png");
+}
+
+.logAs-content-container-inputContainer:last-of-type {
+	background-image: url("/bestiary/public/images/admin.png");
+}
+
+.logAs-content-container-inputContainer:hover {
+	background-color: rgba(34, 1, 1, 0.671);
+}
+
+.logAs-content-container-inputContainer {
+	width:50%;
+	background-color: black;
+	border: 2px solid var(--primary-color-alert);
+	cursor: pointer;
+}
+
+.logAs-content-container-inputContainer input{
+	opacity: 0;
+}
+
+.logAs-content-container-inputContainer label{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.4em;
+	cursor: pointer;
+}
+
+.error {
+	position: absolute;
+	bottom: -1.5em;
+	color: var(--primary-color-alert);
+}
+/* ************** */
+/*     Tablette   */
+/* ************** */
+@media (min-width: 768px) { 
+	body:has(.slideshow-container img) header {
+		height: 18.5em;
+	}
+	
+	body:has(.slideshow-container img) main {
+		height: calc(100vh - 19em);
+	}
+
+	body .login-content div.inputContainer {
+		width: 70%;
+	}
+}
+
+/* ************** */
+/*       PC       */
+/* ************** */
+@media (min-width: 1200px) { 
+	body:has(.slideshow-container img) header {
+		height: 20.5em;
+	}
+
+	body:has(.slideshow-container img) main {
+		height: calc(100vh - 21.5em);
+	}
+
+	body .login-content div.inputContainer {
+		width: 40%;
+	}
+}

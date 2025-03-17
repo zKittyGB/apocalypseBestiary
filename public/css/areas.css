@@ -1,0 +1,78 @@
+main {
+	margin-top: -3.5em;
+}
+
+.areas-content {
+	margin-top: 1em;
+}
+
+.areaContainer {
+	width: 100%;
+}
+
+.areaContainer-options {
+	width: 100%;
+	border: 2px solid var(--primary-color-alert);
+	margin-top: 2em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	border-radius: 15px 15px 0 0;
+}
+
+.areaContainer-options-inputsContainer {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 0.5em;
+}
+
+.areaContainer-pictureContainer {
+	position: relative;
+}
+.areaContainer img {
+	margin-top: -2px;
+	object-fit: contain;
+	width: calc(100% - 4px);
+	border: 2px solid var(--primary-color-alert);
+	border-radius: 0 0 15px 15px;
+}
+
+.areaContainer:not(:has(#safePlaces:checked)) .pin.safePlace,
+.areaContainer:not(:has(#habitats:checked)) .pin.habitat {
+	display: none;
+}
+
+.areaContainer .pin {
+	font-size: 15px;
+	width: 6em;
+	height: 2.5em;
+	border: 2px solid var(--primary-color-alert);
+	background-color: black;
+	border-radius: 0;
+}
+
+#habitats {
+	color: var(--primary-color-alert)
+}
+
+/* ************** */
+/*       PC       */
+/* ************** */
+@media (min-width: 1200px) { 
+	main {
+		margin: 0;
+	}
+
+	.areas-content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.areaSelectContainer {
+		width: 100%;
+	}
+
+	.areaContainer {
+		width: 50%;
+	}
+}

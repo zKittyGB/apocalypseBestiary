@@ -1,0 +1,406 @@
+
+body.isAdmin .submenu ul {
+	display: flex;
+	gap: 1em;
+	content: "";
+	margin-top: 1em;
+	list-style: none;
+}
+
+header {
+	border-bottom: 2px solid var(--primary-color-alert);
+}
+
+/* ************* */
+/*     Modal     */
+/* ************* */
+.adminModal {
+	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: calc(100vh - 7.5em);
+	background-color: rgb(0, 0, 0);
+	z-index: 4;
+	box-sizing: border-box;
+	padding: 1em;
+}
+
+.adminModal.active {
+	display: block;
+}
+
+.adminModal h2 {
+	width: 100%;
+	height: 2em;
+	text-align: center;
+	margin-bottom: 1em;
+}
+
+.adminModal .adminModal-content-closeModal {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	z-index: 3;
+}
+
+.adminModal .adminModal-content {
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.adminModal .adminModal-content-addMonster {
+	position: relative;
+	display: none;
+	width: 100%;
+	height: 70%;
+}
+
+.adminModal-content-addMonster.active {
+	display: block;
+}
+
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part {
+	display: none;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width:100%;
+	height: 100%;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part.active {
+	display: flex;
+}
+
+.adminModal-content-addMonster-container {
+	width: 100%;
+	display: flex;
+}
+
+.submenu[data-menu="adminModal"] {
+	display: flex;
+	list-style: none;
+	justify-content: space-between;
+	width:100%;
+}
+.submenu[data-menu="adminModal"] li {
+	width:100%;
+}
+
+.submenu[data-menu="adminModal"] h3{
+	font-size: 1em;
+	border: 2px solid var(--primary-color-alert);
+	padding: 0.3em;
+	box-sizing: border-box;
+}
+
+.submenu[data-menu="adminModal"] li:not(:first-of-type) h3{
+	border-left: none;
+}
+
+.adminModal .strengthesDisplayer,
+.adminModal .weaknessDisplayer,
+.adminModal .descriptionDisplayer,
+.adminModal .adviceDisplayer,
+.adminModal .behaviorDisplayer {
+	margin-top: -2px;
+	width:100%;
+	display: none;
+	height: 10em;
+}
+
+.adminModal .strengthesDisplayer.active,
+.adminModal .weaknessDisplayer.active,
+.adminModal .descriptionDisplayer.active,
+.adminModal .adviceDisplayer.active,
+.adminModal .behaviorDisplayer.active {
+	display: block;
+}
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part table {
+	border-collapse: collapse;
+	width: 100%;
+}
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part table td,
+.adminModal-content-addMonster .adminModal-content-addMonster-part table th {
+	border: 2px solid var(--primary-color-alert);
+}
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part textarea {
+	border: 2px solid var(--primary-color-alert);
+	height: 100%;
+	width: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	vertical-align: top;
+	background-color: black;
+	color: white;
+}
+
+.adminModal-content-addMonster .adminModal-content-addMonster-part textarea:focus {
+	outline: none;
+	color: white;
+}
+
+.adminModal-content-addMonster-part:has(input[type="file"]),
+.adminModal-content-addMonster-inputContainer:has(input[type="file"]) {
+	height: 100%;
+	width:100%;
+}
+
+.adminModal-content-addMonster-part input[type="file"] {
+	position: absolute;
+	top:50%;
+	left: 50%;
+	transform: translate(-50%,-50%);
+	z-index: 1;
+	opacity: 0;
+}
+
+.adminModal-content-addMonster-part label[for="monsterPicture"] {
+	width: 100%;
+	height: 100%;
+	background-color: black;
+	border: 2px solid var(--primary-color-alert);
+	z-index: 2;
+	color: var(--primary-color-alert);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	font-size: 1.5em;
+}
+
+.adminModal-content-addMonster-part label[for="monsterPicture"] i {
+	font-size: 4em;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.requiredError {
+	color: blue;
+}
+
+.adminModal .adminModal-actions {
+	position: absolute;
+	width: calc(100% - 2em);
+	height:2em;
+	bottom: 1em;
+	display: flex;
+	justify-content: space-between;
+}
+.adminModal .adminModal-actions:has(.hidden) {
+	justify-content: end;
+}
+
+/* *************** */
+/*     Content     */
+/* *************** */
+body.isAdmin .content {
+	position: relative;
+}
+
+.submenu[data-menu="main"] {
+	margin-bottom: 1em;
+}
+
+.submenu li {
+	cursor: pointer;
+}
+
+.submenu h3.active {
+	color: var(--primary-color-alert);
+}
+
+body.isAdmin .content .monstersDisplayer,
+body.isAdmin .content .ranksDisplayer,
+body.isAdmin .content .typesDisplayer,
+body.isAdmin .content .skillsDisplayer {
+	position: absolute;
+	width:100%;
+	top: 1em;
+	left: 0;
+	display: none;
+}
+
+body.isAdmin .content .monstersDisplayer.active,
+body.isAdmin .content .ranksDisplayer.active,
+body.isAdmin .content .typesDisplayer.active,
+body.isAdmin .content .skillsDisplayer.active {
+	display: block;
+	height: 65vh;
+}
+
+body.isAdmin .ranksDisplayer table td:first-of-type {
+	width:2em;
+}
+
+body.isAdmin:has(table) h5 {
+	margin-bottom: -2px;
+	height: 1.5em;
+	background-color: rgba(0, 0, 0, 0.8);
+	font-size: 1em;
+	text-shadow: none;
+}
+
+body.isAdmin table {
+	width: 100%;
+	border: 2px solid var(--primary-color-alert);
+	border-collapse: collapse;
+	background-color: rgba(0, 0, 0, 0.8);
+}
+
+body.isAdmin table input {
+	font-size: 1.2em;
+	border: none;
+	height: auto;
+	color: var(--primary-color-alert);
+}
+
+body.isAdmin .content table input:focus,
+body.isAdmin .content table input::placeholder {
+	color: var(--primary-color-alert);
+}
+
+body.isAdmin table thead {
+	background-color: rgba(48, 7, 7, 0.3);
+}
+
+body.isAdmin:has(table) h5,
+body.isAdmin table th,
+body.isAdmin table td:not(.rankDisplayer-rankLegend) {
+	border: 2px solid var(--primary-color-alert);
+	padding-left: 1em;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+}
+
+body.isAdmin .content table td.rankDisplayer-rankLegend {
+	text-align: center;	
+}
+
+body.isAdmin .typesDisplayer table,
+body.isAdmin .skillsDisplayer table {
+	width: 100%;
+	border-collapse: collapse;
+	display: block;
+	max-height: 65vh;
+	overflow: hidden; 
+}
+    
+body.isAdmin .typesDisplayer table thead,
+body.isAdmin .skillsDisplayer table thead {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	margin-top: -2px;
+	margin-left: -2px;
+}
+    
+body.isAdmin .typesDisplayer table tbody,
+body.isAdmin .skillsDisplayer table tbody {
+	display: block;
+	max-height: 55vh; 
+	overflow-y: auto; 
+	width: 100%;
+	margin-left: -2px;
+}
+    
+body.isAdmin .typesDisplayer table tbody tr,
+body.isAdmin .skillsDisplayer table tbody tr {
+	display: table;
+	width: 100%;
+	table-layout: fixed;
+	margin-top: -2px;
+}
+
+body.isAdmin .skillsDisplayer table tbody tr[data-typeid] {
+	background-color: rgba(66, 14, 14, 0.2);
+}
+
+body.isAdmin .typesDisplayer-addTypeContainer,
+body.isAdmin .skillsDisplayer-addSkillContainer {
+	display: flex;
+	flex-direction: column;
+	background-color: rgba(0, 0, 0, 0.8);
+	gap: 1em;
+}
+
+body.isAdmin .glossaryContainer-addWordContainer .inputContainer,
+body.isAdmin .typesDisplayer-addTypeContainer .inputContainer,
+body.isAdmin .skillsDisplayer-addSkillContainer .inputContainer {
+	display: flex;
+	border: 2px solid var(--primary-color-alert);
+	background-color: rgba(0, 0, 0, 0.8);
+	margin-top: -2px;
+	padding-top: 0.3em;
+	padding-bottom: 0.3em;
+	padding-left: 1em;
+	padding-right: 0.7em;
+}
+
+body.isAdmin .glossaryContainer-addWordContainer .inputContainer input,
+body.isAdmin .typesDisplayer-addTypeContainer input,
+body.isAdmin .skillsDisplayer-addSkillContainer input {
+	border: none;
+	font-size: 1.2em;
+	height: auto;
+}
+
+body.isAdmin .typesDisplayer-addTypeContainer select,
+body.isAdmin .skillsDisplayer-addSkillContainer select {
+	border: none;
+	font-size: 1.2em;
+	height: 100%;
+}
+
+
+/* Table glossaire */
+body.isAdmin .glossaryContainer table thead th:first-child {
+	width: 7em;
+}
+body.isAdmin .glossaryContainer table thead th {
+	padding: 0;
+}
+
+body.isAdmin .glossaryContainer table tbody td:first-of-type {
+	padding: 0;
+}
+body.isAdmin .glossaryContainer table tbody td:first-of-type input {
+	text-align: center;
+}
+
+body.isAdmin .glossaryContainer .glossaryContainer-addWordContainer {
+	display: flex;
+}
+
+body.isAdmin .glossaryContainer .glossaryContainer-addWordContainer .inputContainer:first-of-type {
+	padding-left: 0;
+	width: 7em;
+	min-width: calc(7em + 2px);
+	border-right: none;
+}
+body.isAdmin .glossaryContainer .glossaryContainer-addWordContainer .inputContainer:first-of-type input {
+	text-align: center;
+}
+
+
+/* ************** */
+/*       PC       */
+/* ************** */
+@media (min-width: 1200px) { 
+	body.isAdmin .content .ranksDisplayer {
+		width: 50%;
+		left: 50%;
+		transform: translate(-50%, 0);
+	}
+}

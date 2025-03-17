@@ -1,0 +1,443 @@
+.monsterModal {
+	position: absolute;
+	top: -1.2em;
+	left: 0;
+	width: calc(100% - 4px);
+	height: calc(100vh - 11.5em);
+	border: 2px solid var(--primary-color-alert);
+	z-index: 5;
+	background-color: black;
+	display: none;
+	flex-direction: column;
+	justify-content: space-between;
+	z-index: 999;
+	font-weight: bold;
+	border-radius: 15px;
+	overflow: hidden;
+}
+
+body:not(.isAdmin) .monsterModal {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+body:has(.monsterModal.active) .monsterModal-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.7);
+	z-index: 998;
+}
+
+.monsterModal i[data-action="close"] {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	color: white;
+	z-index: 5;
+	cursor: pointer;
+}
+
+.monsterModal i[data-action="delete"] {
+	position: absolute;
+	top: 1em;
+	left: 1em;
+	color: white;
+	z-index: 5;
+	cursor: pointer;
+}
+
+.monsterModal.active {
+	display: flex;
+}
+
+.monsterModal-banner {
+	width: 100%;
+	height: 8.5em;
+	border-bottom: 2px solid var(--primary-color-alert);
+	position: relative;
+}
+
+#cropperContainer {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 8.5em;
+}
+
+body:not(.isAdmin) #cropperContainer {
+	border-bottom: 2px solid var(--primary-color-alert);
+	position: static;
+}
+
+#previewImage {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover; 
+}
+
+.monsterModal-banner label {
+	position: absolute;
+	background-color: black;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+	padding: 1em;
+	box-sizing: border-box;
+}
+
+
+.monsterModal h3 {
+	width: 100%;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	text-align: center;
+}
+
+.monsterModal h3 input {
+	width: 60%;
+}
+
+.monsterModal-details {
+	width: 100%;
+	height: 4.5em;
+	display: flex;
+	gap: 1em;
+	padding: 0.5em;
+	box-sizing: border-box;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.monsterModal-details-content {
+	width: 50%;
+	height: 100%;
+	color: white;
+}
+
+.monsterModal-details-content > div {
+	display: flex;
+	justify-content: space-between;
+	gap: 0;
+}
+
+.monsterModal-details-content p {
+	width:30%;
+}
+body:not(.isAdmin) .monsterModal-details-content p {
+	width:100%;
+	display: flex;
+	align-items: center;
+}
+
+body:not(.isAdmin) .monsterModal-details-content p span {
+	color: var(--primary-color-alert);
+	margin-left: 0.5em;
+	font-weight: bold;
+}
+
+.monsterModal-details-content select {
+	width:70%;
+}
+
+.monsterModal-body {
+	position: relative;
+	width: 100%;
+	height: 75%;
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-end;
+}
+
+.monsterModal-body-menu {
+	width: 100%;
+	height: 2.5em;
+}
+
+.monsterModal-body-menu ul {
+	display: flex;
+	height: 100%;
+	width: 100%;
+	margin-left: 0.5em;
+}
+
+.monsterModal-body-menu li {
+	display: flex;
+	height: 100%;
+	width:2.5em;
+	margin-left: -2px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid var(--primary-color-alert);
+}
+
+.monsterModal-body-menu li:first-of-type {
+	border-radius: 10px 0 0 0;
+}	
+
+.monsterModal-body-menu li:last-of-type {
+	border-radius: 0 10px 0 0;
+}	
+
+.monsterModal-body-menu li.active {
+	background-color: rgb(141, 1, 1);
+}
+
+.monsterModal-body-menu li i {
+	pointer-events: none;
+}
+
+.monsterModal-body-content {
+	position: relative;
+	width: 100%;
+	margin-top: 2px;
+	background-color: black;
+	height: 100%;
+	border-top: 2px solid var(--primary-color-alert);
+	border-bottom: 2px solid var(--primary-color-alert);
+}
+
+.monsterModal-body-content-sheets {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	padding: 0.5em;
+	box-sizing: border-box;
+	display: none;
+}
+
+.monsterModal-body-content-sheets.active {
+	display: flex;
+}
+body:not(.isAdmin) .monsterModal-body-content-sheets.active {
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.monsterModal-body-content-sheets:has(textarea) {
+	flex-direction: column;
+	justify-content: space-between;
+	gap: 1em;
+}
+
+
+.monsterModal-body-content-sheets-textareaContainer {
+	height: 50%;
+	width: 100%;
+}
+
+.monsterModal-body-content-sheets-textareaContainer span,
+.monsterModal-body-content-sheets-advice span { 
+	overflow: scroll;
+}
+
+.monsterModal-body-content-sheets textarea {
+	border: 2px solid var(--primary-color-alert);
+	height: 90%;
+	width: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	vertical-align: top;
+	background-color: black;
+	color: white;
+	border-radius: 15px;
+}
+
+.monsterModal-body-content-sheets-advice textarea {
+	border: 2px solid var(--primary-color-alert);
+	height: 78%;
+	width: 100%;
+	padding: 0.5em;
+	box-sizing: border-box;
+	vertical-align: top;
+	background-color: black;
+	color: white;
+}
+
+.monsterModal-body-actions {
+	width:100%;
+	height: 2.5em;
+}
+
+.monsterModal-body-actions button:hover {
+	background-color: rgb(141, 1, 1);
+
+}
+.monsterModal-body-actions button {
+	width:100%;
+	height: 100%;
+	font-size: 1.5em;
+	background-color: transparent;
+	color: white;
+	outline: none;
+	border: none;
+	font-family: 'WreckedShip', sans-serif;
+}
+
+.monsterModal-body-content-sheets li {
+	margin-bottom: 0.3em;
+	display: flex;
+	gap: 0.5em;
+	align-items: center;
+	width: 60%;
+}
+
+.monsterModal-body-content-sheets-weaknesses,
+.monsterModal-body-content-sheets-strengthes {
+	height: 20%;
+}
+
+.monsterModal-body-content-sheets-weaknesses {
+	margin-top: 1em;
+}
+
+.monsterModal-body-content-sheets-advice {
+	height: 25%;
+}
+
+.monsterModal-body-content-sheets-skills-list {
+	display: flex;
+	width: 100%;
+	gap: 0.5em
+}
+
+.monsterModal-body-content-sheets-skills-container {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.monsterModal-body-content-sheets-skills-container-skillsList {
+	width: 45%;
+}
+.monsterModal-body-content-sheets-skills-container-skillsList li {
+	width: 100%;
+}
+
+.monsterModal-body-content-sheets-skills-container-skillsList .inputContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.monsterModal-body-content-sheets-inputNoID {
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	height: 13em;
+}
+
+.monsterModal-body-content-sheets-inputNoID ul {
+	width: 100%;
+}
+
+
+.monsterModal-body-content-sheets-strengthes,
+.monsterModal-body-content-sheets-weaknesses {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: left;
+	width: 100%;
+	height: 50%;
+	gap: 0.5em;
+}
+
+body:not(.isAdmin) .monsterModal-body-content-sheets-textareaContainer {
+	height: 45%;
+}
+
+body:not(.isAdmin) .monsterModal-body-content-sheets-advice span,
+body:not(.isAdmin) .monsterModal-body-content-sheets-textareaContainer span {
+	display: block;
+	width: 100%;
+	height: 90%;
+	border: 2px solid var(--primary-color-alert);
+	padding: 0.5em;
+	box-sizing: border-box;
+}
+
+#monsterName {
+	color: white;
+}
+
+#monsterName::placeholder {
+	color: white;
+}
+
+
+/* ************** */
+/*     Tablette   */
+/* ************** */
+@media (min-width: 768px) { 
+	#monsterName {
+		width: 20%;
+		margin-top: 0.5em;
+	}
+}
+
+
+/* ************** */
+/*       PC       */
+/* ************** */
+@media (min-width: 1200px) { 
+	.monsterModal {
+		position: fixed;
+		left: 50%;
+		top: 50%;
+		transform: translate(-50%, -50%);
+		width: 35%;
+		height: calc(100vh - 3em);
+		z-index: 999; 
+	}
+
+	#monsterName {
+		width: 20%;
+		margin-top: 1em;
+		margin-bottom: 0;
+	}
+
+	.monsterModal-details {
+		margin-top: 0;
+		padding-left: 1em;
+		padding-right: 1em;
+		box-sizing: border-box;
+	}
+	.monsterModal-body-content-sheets {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+	.monsterModal-body-content-sheets-textareaContainer textarea {
+		height: 80%;
+	}
+	
+	.monsterModal-body-content-sheets-inputNoID {
+		flex-direction: row;
+	}
+	
+	.monsterModal-body-content-sheets-strengthes input:not([type="checkbox"]),
+	.monsterModal-body-content-sheets-weaknesses input:not([type="checkbox"]) {
+		font-size: 0.8em;
+		width: 100%;
+	}
+
+	.monsterModal-body-content-sheets-advice {
+		height: 40%;
+	}
+}

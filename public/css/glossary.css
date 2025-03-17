@@ -1,0 +1,18 @@
+
+main {
+	margin-top: -3.5em;
+}
+
+.glossary-content h3 {
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+/* ************** */
+/*     Tablette   */
+/* ************** */
+@media (min-width: 1200px) { 
+	main {
+		margin-top:0;
+	}
+}
