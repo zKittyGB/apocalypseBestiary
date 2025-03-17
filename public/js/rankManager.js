@@ -215,7 +215,7 @@ function updateRankOrder(event) {
 	const rankID = row.closest("tr").dataset.rankid;
 	const rankOrderCell = row.querySelector(".ranksDisplayer-rankOrder");
 	const currentOrder = parseInt(rankOrderCell.textContent);
-	console.log(currentOrder)
+
 	// Arrête le traitement si l'ordre du rang est le 1 er ou le dernier
 	if((currentOrder == 1 && action == "up")|| (currentOrder == highestExistingRank && action =="down")) {
 		return;

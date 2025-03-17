@@ -8,10 +8,10 @@ class Database
 	{
 		if (self::$instance === null) {
 			try {
-				$host = "votre DB";
-				$dbname = "Nom de la DB"; 
-				$username = "ID"; 
-				$password = "Mot de passe";
+				$host = "zkittyabangbang.mysql.db";
+				$dbname = "zkittyabangbang"; 
+				$username = "zkittyabangbang"; 
+				$password = "Patate2TesMorts";
 				$dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
 
 				self::$instance = new PDO($dsn, $username, $password, [

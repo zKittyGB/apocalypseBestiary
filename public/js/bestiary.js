@@ -397,7 +397,6 @@ orgChartINPUT.addEventListener("change", () => {
 		filters.classList.add("hidden");
 		gallery.classList.add("hidden");
 		filtersBody.classList.add("hidden");
-		console.log("gal",gallery)
 	} else {
 		tree.classList.remove("active");
 		filters.classList.remove("hidden");

@@ -35,7 +35,6 @@ allButtons.forEach((button) => {
 
 
 function addElement(event) {
-	console.log("patate")
 	const dataAddElement = event.target.dataset.element;
 	const INPUT = content.querySelector(`input[data-element="${dataAddElement}"]`);
 	const INPUTValue = INPUT.value;

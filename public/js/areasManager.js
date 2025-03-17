@@ -385,8 +385,6 @@ function handleClickCard(event) {
 	} else {
 		existingElement = document.querySelector(`.existingElement [data-safeplaceid="${elementID}"]`);
 	}
-	console.log(existingElement);
-	console.log(elementID);
 	existingElement.dispatchEvent(clickEvent);
 
 	areaModalImg.classList.add("active");

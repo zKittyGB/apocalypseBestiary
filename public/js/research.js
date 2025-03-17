@@ -30,7 +30,7 @@ searchINPUT.addEventListener("input", () => {
 	    })
 	    .then(response => response.json())
 	    .then(data => {
-		console.log(data)
+
 		if(data.error) {
 		    console.error("Erreur :", data.error);
 		    return;
@@ -67,7 +67,6 @@ searchINPUT.addEventListener("input", () => {
 
 					// Ajout de l'ID 
 					card.dataset.elementid = item.ID;
-					console.log(category)
 					
 					// Utilise une variable temporaire pour l'image à afficher
 					const pictureFolder = (category === "bestiary") ? "monsters" : category;

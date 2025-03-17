@@ -494,7 +494,6 @@ function updateMonster() {
 			} else { 
 				Object.keys(changedValues).forEach(key => {
 					if(key !== "monsterSkills" && key !== "monsterStrengthes" && key !== "monsterWeaknesses" && key !== "") {
-						console.log(key)
 						document.querySelector(`#${key}`).dataset.initvalue = changedValues[key]; 
 					}
 				});
@@ -510,7 +509,6 @@ function deleteMonster() {
 	const modalMonster = document.querySelector(".monsterModal");
 	const monsterID = modalMonster.dataset.id;
 	const formData = new FormData();
-	console.log("patate")
 	formData.append("monsterID", monsterID); 
 
 	if(!confirm("Confirmez-vous la suppréssion du monstre ?")) {
@@ -523,7 +521,6 @@ function deleteMonster() {
 	})
 		.then(response => response.json())
 		.then(data => {
-			console.log(data)
 			if(data.error) {
 				console.error("Erreur :", data.error);
 			} else { 
