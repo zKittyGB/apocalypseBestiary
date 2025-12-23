@@ -77,4 +77,4 @@ Lors de la création / mise-à-jour d'un habitat ou d'une zone sûre, l'utilisat
 
 1. Clonez ce dépôt sur votre machine locale :
    ```bash
-   git clone https://github.com/votre-utilisateur/votre-projet.git
+   git clone https://github.com/zKittyGB/apocalypseBestiary.git
