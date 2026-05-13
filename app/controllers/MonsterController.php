@@ -108,12 +108,9 @@ class MonsterController extends Controller
 			}
 
 			$file = $_FILES["monsterPicture"];
+			$fileExtension = $this->validateUploadedImage($file);
 
-			// Vérifier l"extension du fichier
-			$allowedExtensions = ["jpg", "jpeg", "png"];
-			$fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
-
-			if(!in_array($fileExtension, $allowedExtensions)) {
+			if($fileExtension === null) {
 				die(json_encode(["error" => "Format de fichier non autorisé"]));
 			}
 

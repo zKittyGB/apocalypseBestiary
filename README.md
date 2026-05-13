@@ -78,3 +78,10 @@ Lors de la création / mise-à-jour d'un habitat ou d'une zone sûre, l'utilisat
 1. Clonez ce dépôt sur votre machine locale :
    ```bash
    git clone https://github.com/zKittyGB/apocalypseBestiary.git
+   ```
+
+### Configuration sécurisée
+
+Les identifiants de base de données ne doivent pas être versionnés. Copiez `.env.example` vers `.env` sur l'environnement cible et renseignez `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` et `APP_KEY` avec des valeurs propres à l'environnement.
+
+L'application reste compatible avec l'ancien fichier externe `/include/db.php` si les variables `DB_*` ne sont pas définies. Ce fichier doit rester hors du dépôt et hors du répertoire public.

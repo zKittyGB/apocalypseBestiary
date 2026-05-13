@@ -9,7 +9,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données : `zkittyabangbang`
+-- Base de données : `apocalypse_bestiary`
 --
 
 -- --------------------------------------------------------
@@ -502,9 +502,7 @@ CREATE TABLE `bestiaryUsers` (
 -- Déchargement des données de la table `bestiaryUsers`
 --
 
-INSERT INTO `bestiaryUsers` (`userID`, `userIsAdmin`, `userFirstName`, `userLastName`, `userMail`, `userPassword`, `userDateCreation`, `userDateModification`) VALUES
-(1, 1, 'Axel', 'Hébert', 'a-hebert@hotmail.fr', '$2b$12$bjm2/dIVu3wYCHMrhTGi.OaEaH4gMSRh6A5mQt7Gw8kLVCSdZB.Se', '2025-02-18 12:24:03', '2025-02-18 12:24:03'),
-(8, 1, 'test', 'test', 'test@test.fr', '$2y$10$YVlAnIBarT2O5fL7j9Gcxe43JBIPtpe.GJflH.kbiFtqD.Oz6czD2', '0000-00-00 00:00:00', '0000-00-00 00:00:00');
+-- Les comptes utilisateurs ne sont pas exportés afin de ne pas versionner d’emails ou de hashes de mots de passe.
 
 --
 -- Index pour les tables déchargées

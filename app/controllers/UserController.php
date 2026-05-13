@@ -12,8 +12,9 @@ class UserController extends Controller
 
 	public function logAs()
 	{
-		if ($_SESSION["userIsAdmin"] != 1) {
+		if (empty($_SESSION["userIsAdmin"])) {
 			header("Location: https://www.zkittygb.fr/bestiary/public/?url=home");
+			exit;
 		}
 
 		// Affiche la vue login.php
@@ -31,6 +32,8 @@ class UserController extends Controller
 			$user = $model->getUserByEmail($email);
 
 			if ($user && password_verify($password, $user->userPassword)) {
+				session_regenerate_id(true);
+
 				// Connexion réussie
 				$_SESSION["userID"] = $user->userID;
 				$_SESSION["userFirstName"] = $user->userFirstName;
@@ -53,13 +56,18 @@ class UserController extends Controller
 	{
 		if ($_SERVER["REQUEST_METHOD"] === "POST") {
 			// Vérifie si la valeur est bien envoyée
-			if (!isset($_POST["logAs"]) || $_SESSION["userIsAdmin"] == 0) {
+			if (!isset($_POST["logAs"]) || empty($_SESSION["userIsAdmin"])) {
 				$_SESSION["login_error"] = "Veuillez choisir un mode de connexion.";
 				header("Location: https://www.zkittygb.fr/bestiary/public/?url=login");
 				exit;
 			}
 
 			$logAs = $_POST["logAs"]; // "user" ou "admin"
+			if (!in_array($logAs, ["user", "admin"], true)) {
+				$_SESSION["login_error"] = "Mode de connexion invalide.";
+				header("Location: https://www.zkittygb.fr/bestiary/public/?url=login");
+				exit;
+			}
 
 			// Stocker le choix dans la session
 			$_SESSION["loggedAs"] = $logAs;

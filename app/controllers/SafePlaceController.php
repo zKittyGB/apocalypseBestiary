@@ -1,8 +1,9 @@
 <?php
+require_once $_SERVER["DOCUMENT_ROOT"] . '/bestiary/core/Controller.php';
 require_once $_SERVER["DOCUMENT_ROOT"] . '/bestiary/app/models/SafePlaceModel.php';
 
 
-class SafePlaceController {
+class SafePlaceController extends Controller {
 	static function getSafePlaces() {
 		$safePlaceModel = new SafePlaceModel();
 		$safePlaces = $safePlaceModel->getSafePlaces();
@@ -51,12 +52,9 @@ class SafePlaceController {
 		$safePlaceName = $_POST["elementName"];
 		$coordinates = json_decode($_POST["coordinates"], true);
 		$file = $_FILES["elementPicture"];
-		
-		// Vérifier l"extension du fichier
-		$allowedExtensions = ["jpg", "jpeg", "png"];
-		$fileExtension = strtolower(pathinfo($file["name"], PATHINFO_EXTENSION));
+		$fileExtension = $this->validateUploadedImage($file);
 	
-		if (!in_array($fileExtension, $allowedExtensions)) {
+		if ($fileExtension === null) {
 			die(json_encode(["error" => "Format de fichier non autorisé"]));
 		}
 	
