@@ -1,12 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Hôte : zkittyabangbang.mysql.db
--- Généré le : lun. 17 mars 2025 à 12:56
--- Version du serveur : 8.0.40-31
--- Version de PHP : 7.4.33
-
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = "+00:00";
